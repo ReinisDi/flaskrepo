@@ -26,7 +26,7 @@ ENV AWS_DEFAULT_REGION $AWS_DEFAULT_REGION
 # Avoid cache purge by adding requirements first
 ADD ./requirements.txt ./requirements.txt
 
-RUN pip install -r ./requirements.txt --user
+RUN pip3 install -r requirements.txt
 
 # Add the rest of the files
 COPY . /app
