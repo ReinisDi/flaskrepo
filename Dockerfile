@@ -1,5 +1,9 @@
 FROM python:3.8-slim
 
+RUN apt-get update -y
+RUN apt-get install python3-pip -y
+RUN apt-get install gunicorn -y
+
 # set current env
 ENV HOME /app
 WORKDIR /app
