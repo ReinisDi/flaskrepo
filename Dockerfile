@@ -5,12 +5,12 @@ RUN apt-get install python3-pip -y
 RUN apt-get install gunicorn -y
 
 # set current env
-ENV HOME /app
+#ENV HOME /app
 WORKDIR /app
-ENV PATH="/app/.local/bin:${PATH}"
+#ENV PATH="/app/.local/bin:${PATH}"
 
 # set app config option
-ENV FLASK_ENV=production
+#ENV FLASK_ENV=production
 
 # set argument vars in docker-run command
 ARG AWS_ACCESS_KEY_ID
@@ -26,7 +26,7 @@ ENV AWS_DEFAULT_REGION $AWS_DEFAULT_REGION
 # Avoid cache purge by adding requirements first
 ADD ./requirements.txt ./requirements.txt
 
-RUN pip install --no-cache-dir -r ./requirements.txt --user
+RUN pip install -r ./requirements.txt --user
 
 # Add the rest of the files
 COPY . /app
